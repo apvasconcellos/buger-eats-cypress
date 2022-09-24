@@ -11,8 +11,8 @@ jobs:
       fail-fast: false
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-      
+        uses: actions/checkout@vv4.1.0
+        
       - name: 'UI Tests - Chrome'
         uses: cypress-io/github-action@v2
         with:
@@ -22,7 +22,9 @@ jobs:
           browser: chrome
           record: true
           group: 'UI - Chrome'
-          spec: cypress/integration/*
+          spec: cypress/e2e/*
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+config-file:cypress.config.js
